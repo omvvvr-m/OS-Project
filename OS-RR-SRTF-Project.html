@@ -809,6 +809,8 @@
           }
         }
 
+
+        // Find closest arrival time from th unfinished processes
         if (arrived.length === 0) {
           var nextArrival = null;
           for (i = 0; i < list.length; i++) {
@@ -822,8 +824,8 @@
           time = nextArrival;
           continue;
         }
-
-        bestIndex = 0;
+        // CORE LOGIC
+        bestIndex = 0; // assume first process is the shortest
         for (j = 1; j < arrived.length; j++) {
           if (arrived[j].remaining < arrived[bestIndex].remaining) {
             bestIndex = j;
